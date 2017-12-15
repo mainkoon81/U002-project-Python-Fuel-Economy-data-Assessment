@@ -28,6 +28,7 @@ The fuel-economy of an automobile is the 'fuel efficiency relationship' between
  - the distance traveled and 
  - the amount of fuel consumed by the vehicle
 > Consumption can be expressed in terms of volume of fuel to travel a distance, or the distance travelled per unit volume of fuel consumed.
+
 Possible questions: Are more models using alternative sources of fuel? By how much? How much have vehicle classes improved in fuel economy? What features are associated with better fuel economy? For all the models produced in 2008 that are still being produced in 2018, how much has the mpg improved and which vehicle improved the most? 
 
 

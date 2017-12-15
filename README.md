@@ -1,11 +1,16 @@
 # project-02-DA
 
-__Case-02.__ 
+__Case-02.__ Fuel-Economy Dataset
   - package:
   - func: 
 -------------------------------------------------------------------------------------------------------------------------------------
-__Data:__ Wine Quality Data Set (https://archive.ics.uci.edu/ml/datasets/Wine+Quality/)
-2 datasets are included, related to red and white "vinho verde wine" samples, from the north of Portugal. Each wine sample comes with a quality rating from 1 to 10, and r
+__Data:__ Fuel-Economy Dataset (https://www.epa.gov/compliance-and-fuel-economy-data/data-cars-used-testing-fuel-economy) provided by the EPA-US.Environmental Protection Agency. 
+
+__Story:__ The fuel-economy of an automobile is the 'fuel efficiency relationship' between 
+ - the distance traveled and 
+ - the amount of fuel consumed by the vehicle. 
+Consumption can be expressed in terms of volume of fuel to travel a distance, or the distance travelled per unit volume of fuel consumed.
+
 
 
 

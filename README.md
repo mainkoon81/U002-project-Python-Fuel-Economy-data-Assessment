@@ -31,7 +31,7 @@ The fuel-economy of an automobile is the 'fuel efficiency relationship' between
 
 __Possible Questions:__ Are more models using alternative sources of fuel? By how much? How much have vehicle classes improved in fuel economy? What features are associated with better fuel economy? For all the models produced in 2008 that are still being produced in 2018, how much has the mpg improved and which vehicle improved the most? 
 
-### 1> assess the dataset
+### 1> Assess the Dataset
 number of samples in each dataset ?
 number of columns in each dataset ?
 duplicate rows in each dataset ?
@@ -40,10 +40,33 @@ features with missing values ?
 number of non-null unique values for features in each dataset ?
 what those unique values are and counts for each ?
 
-#### 
+#### Counting
+samples, duplicate rows, rows with missing, unique values
+```
+df.info()
+sum(df.duplicated())
+df.isnull().sum(axis=0)
+df.nunique()
+```
+### 2> Cleaning
+#### Drop extraneous columns
+Drop features that aren't consistent (not present in both datasets) or aren't relevant to our aim.
+ - Columns to Drop:
+   - From 2008 dataset: 'Stnd', 'Underhood ID', 'FE Calc Appr', 'Unadj Cmb MPG'
+   - From 2018 dataset: 'Stnd', 'Stnd Description', 'Underhood ID', 'Comb CO2'
+```
+df_08.drop(['Stnd', 'Underhood ID', 'FE Calc Appr', 'Unadj Cmb MPG'], axis=1, inplace=True)
+df_18.drop(['Stnd', 'Stnd Description', 'Underhood ID', 'Comb CO2'], axis=1, inplace=True)
+```
+#### Rename Columns
+Change the "Sales Area" column label in the 2008 dataset to "Cert Region" for consistency.
+```
+df_08.rename(columns = {'Sales Area':'Cert Region'}, inplace=True)
+```
+Rename all column labels to replace spaces with underscores and convert everything to lowercase. (Underscores can be much easier work with in Python than spaces. For example, having spaces wouldn't allow you to use df.column_name instead of df['column_name'] to select columns or use query(). Being consistent with lowercase and underscores also helps make column names easy to remember.)
+```
 
-
-
+```
 
 
 

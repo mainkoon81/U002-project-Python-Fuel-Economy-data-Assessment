@@ -112,21 +112,29 @@ print(df_08.duplicated().sum())   #confirm
 print(df_18.duplicated().sum())   #confirm
 ```
 #### Fixing Data-Types
+> NOTE: extract int from str in pandas
+ - > You can convert to string then extract the integer using regular expressions.
+ - > df['column'].str.extract('(\d+)')...'\d' means digit
+
 What changes should be made to make them practical and consistent in both datasets? 
- - 1)Fix cyl datatype: 
-   - 2008: extract int from string.
-   - 2018: convert float to int.
+ - 1)Fix 'cyl' datatype (it's categorical): 
+   - 2008: extract int from str using 'regular expression', then convert to int. 
+   - 2018: convert float to int...using 'astype(int)'.
 ```
+df_08['cyl'].value_counts()
+df_08['cyl'].str.extract('(\d+)').astype(int)
+df_08['cyl'].value_counts()
 
-
+df_18['cyl'] = df_18['cyl'].astype(int)
 ```
-
-
  - 2)Fix air_pollution_score datatype
    - 2008: convert string to float.
    - 2018: convert int to float.
-   
-   
+```
+
+
+
+```   
  - 3)Fix city_mpg, hwy_mpg, cmb_mpg datatypes
    - 2008 and 2018: convert string to float.
    

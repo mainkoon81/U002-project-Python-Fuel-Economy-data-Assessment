@@ -126,7 +126,7 @@ df_08['cyl'].value_counts()
 
 df_18['cyl'] = df_18['cyl'].astype(int)
 ```
- - 2)Fix air_pollution_score datatype
+ - 2)Fix 'air_pollution_score' datatype
    - 2008: convert string to float.
    - 2018: convert int to float.
 ```
@@ -147,6 +147,9 @@ df_18['cyl'] = df_18['cyl'].astype(int)
 
 
 
+
+
+### 00. Python RegEx
 
 
 

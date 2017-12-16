@@ -93,6 +93,23 @@ df_18 = df_18.drop('cert_region', axis=1)
 df_08.shape   #confirm
 df_18.shape   #confirm
 ```
+Drop any rows in both datasets that contain missing values.
+```
+df_08.isnull().sum(axis=0)
+df_08.isnull().sum(axis=0)
+
+df_08.dropna(axis=0, inplace=True)
+df_18.dropna(axis=0, inplace=True)
+
+df_08.isnull().sum().any()   #confirm
+df_18.isnull().sum().any()   #confirm
+```
+Drop any duplicate rows in both datasets.
+```
+
+
+```
+
 
 
 

@@ -65,19 +65,34 @@ Change the "Sales Area" column label in the 2008 dataset to "Cert Region" for co
 ```
 df_08.rename(columns = {'Sales Area':'Cert Region'}, inplace=True)
 ```
-Rename all column labels to replace spaces with underscores and convert everything to lowercase. (Underscores can be much easier work with in Python than spaces. For example, having spaces wouldn't allow you to use df.column_name instead of df['column_name'] to select columns or use query(). Being consistent with lowercase and underscores also helps make column names easy to remember.)
+Rename all column labels to replace spaces with underscores and convert everything to lowercase. Being consistent with lowercase and underscores makes things easier.  
 ```
-
+df_08.rename(columns = lambda x: x.strip().lower().replace(" ", "_"), inplace=True)
 ```
+*Confirm column labels for 2008 and 2018 datasets are identical
+```
+df_08.columns == df_18.columns
+(df_08.columns == df_18.columns).all()
+```
+Save new datasets
+```
+df_08.to_csv('data_08.csv', index=False)
+df_18.to_csv('data_18.csv', index=False)
+```
+For consistency, only compare cars certified by 'California standards', filter both datasets using 'query()' to select only rows where cert_region is CA. Then, drop the cert_region columns, since it will no longer provide any useful information. 
+```
+df_08 = df_08.query('cert_region=="CA"')
+df_18 = df_18.query('cert_region=="CA"')
 
+df_08['cert_region'].unique()   #confirm
+df_18['cert_region'].unique()   #confirm
 
+df_08 = df_08.drop('cert_region', axis=1) 
+df_18 = df_18.drop('cert_region', axis=1)
 
-
-
-
-
-
-
+df_08.shape   #confirm
+df_18.shape   #confirm
+```
 
 
 

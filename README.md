@@ -113,8 +113,7 @@ print(df_18.duplicated().sum())   #confirm
 ```
 #### Fixing Data-Types
 > NOTE: extract int from str in pandas
- - > You can convert to string then extract the integer using regular expressions.
- - > df['column'].str.extract('(\d+)')...'\d' means digit
+ - > You can convert to string then extract the integer using regular expressions: df['column'].str.extract('(\d+)')
 
 What changes should be made to make them practical and consistent in both datasets? 
  - 1)Fix 'cyl' datatype (it's categorical): 

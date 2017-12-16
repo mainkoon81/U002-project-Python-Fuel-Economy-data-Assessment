@@ -112,7 +112,27 @@ print(df_08.duplicated().sum())   #confirm
 print(df_18.duplicated().sum())   #confirm
 ```
 #### Fixing Data-Types
-What changes should be made to make them practical and consistent in both datasets? First, when looking at 'cyl' column, the format of values does not match, so we extract 'int' value from the strings in the 2008, while converting 'float' value in the 2018 to 'int'.  
+What changes should be made to make them practical and consistent in both datasets? 
+ - 1)Fix cyl datatype: 
+   - 2008: extract int from string.
+   - 2018: convert float to int.
+```
+
+
+```
+
+
+ - 2)Fix air_pollution_score datatype
+   - 2008: convert string to float.
+   - 2018: convert int to float.
+   
+   
+ - 3)Fix city_mpg, hwy_mpg, cmb_mpg datatypes
+   - 2008 and 2018: convert string to float.
+   
+   
+ - 4)Fix greenhouse_gas_score datatype
+   - 2008: convert from float to int.
 
 
 

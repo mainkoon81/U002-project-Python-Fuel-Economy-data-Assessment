@@ -74,6 +74,7 @@ df_08.rename(columns = lambda x: x.strip().lower().replace(" ", "_"), inplace=Tr
 df_08.columns == df_18.columns
 (df_08.columns == df_18.columns).all()
 ```
+#### Querying and Dropping
 For consistency, only compare cars certified by 'California standards', filter both datasets using 'query()' to select only rows where cert_region is CA. Then, drop the cert_region columns, since it will no longer provide any useful information. 
 ```
 df_08 = df_08.query('cert_region=="CA"')
@@ -99,7 +100,7 @@ df_18.dropna(axis=0, inplace=True)
 df_08.isnull().sum().any()   #confirm
 df_18.isnull().sum().any()   #confirm
 ```
-Drop any duplicate rows in both datasets. (dedupping)
+Drop any duplicate rows in both datasets (dedupping).
 ```
 df_08.duplicated().sum()
 df_18.duplicated().sum()
@@ -110,6 +111,7 @@ df_18.drop_duplicates(inplace=True)
 print(df_08.duplicated().sum())   #confirm
 print(df_18.duplicated().sum())   #confirm
 ```
+Inspecting Data Types
 
 
 

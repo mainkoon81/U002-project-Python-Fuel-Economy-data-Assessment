@@ -31,6 +31,8 @@ The fuel-economy of an automobile is the 'fuel efficiency relationship' between
 
 __Possible Questions:__ Are more models using alternative sources of fuel? By how much? How much have vehicle classes improved in fuel economy? What features are associated with better fuel economy? For all the models produced in 2008 that are still being produced in 2018, how much has the mpg improved and which vehicle improved the most? 
 
+<img src="https://user-images.githubusercontent.com/31917400/34065415-63386fc6-e1f9-11e7-86c1-b23629421c80.jpg" />
+
 ### 1> Assess the Dataset
 number of samples in each dataset ?
 number of columns in each dataset ?

@@ -111,7 +111,35 @@ df_18.drop_duplicates(inplace=True)
 print(df_08.duplicated().sum())   #confirm
 print(df_18.duplicated().sum())   #confirm
 ```
-Inspecting Data Types
+#### Fixing Data-Types
+What changes should be made to make them practical and consistent in both datasets? First, when looking at 'cyl' column, the format of values does not match, so we extract 'int' value from the strings in the 2008, while converting 'float' value in the 2018 to 'int'.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

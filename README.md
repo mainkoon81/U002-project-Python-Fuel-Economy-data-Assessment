@@ -69,15 +69,10 @@ Rename all column labels to replace spaces with underscores and convert everythi
 ```
 df_08.rename(columns = lambda x: x.strip().lower().replace(" ", "_"), inplace=True)
 ```
-*Confirm column labels for 2008 and 2018 datasets are identical
+**Confirm column labels for 2008 and 2018 datasets are identical**
 ```
 df_08.columns == df_18.columns
 (df_08.columns == df_18.columns).all()
-```
-Save new datasets
-```
-df_08.to_csv('data_08.csv', index=False)
-df_18.to_csv('data_18.csv', index=False)
 ```
 For consistency, only compare cars certified by 'California standards', filter both datasets using 'query()' to select only rows where cert_region is CA. Then, drop the cert_region columns, since it will no longer provide any useful information. 
 ```
@@ -104,10 +99,16 @@ df_18.dropna(axis=0, inplace=True)
 df_08.isnull().sum().any()   #confirm
 df_18.isnull().sum().any()   #confirm
 ```
-Drop any duplicate rows in both datasets.
+Drop any duplicate rows in both datasets. (dedupping)
 ```
+df_08.duplicated().sum()
+df_18.duplicated().sum()
 
+df_08.drop_duplicates(inplace=True)
+df_18.drop_duplicates(inplace=True)
 
+print(df_08.duplicated().sum())   #confirm
+print(df_18.duplicated().sum())   #confirm
 ```
 
 

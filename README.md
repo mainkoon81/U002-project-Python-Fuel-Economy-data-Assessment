@@ -130,10 +130,33 @@ df_18['cyl'] = df_18['cyl'].astype(int)
    - 2008: convert string to float.
    - 2018: convert int to float.
 ```
+df_08.air_pollution_score = df_08.air_pollution_score.astype(float)
+............ERROR
+```
+<img src="https://user-images.githubusercontent.com/31917400/34075216-a8f0156e-e2b7-11e7-8b33-ff6a05107727.jpg" width="350" height="100" />
+
+Looks like this isn't going to be as simple as converting the datatype. According to the error above, the value at row 582 is "6/4"
+```
+df_08.iloc[582]
+```
+<img src="https://user-images.githubusercontent.com/31917400/34075494-7ad54fe2-e2c0-11e7-8b16-649adcaa4c5d.jpg" width="250" height="150" />
+
+The mpg columns and greenhouse gas scores also seem to have the same problem - maybe that's why these were all saved as strings! According to the document, all vehicles with more than one fuel type, or hybrids, like the one above (it uses ethanol AND gas) will have a string that holds two values - one for each. so...First, let's get all the hybrids in 2008
+```
+hb_08 = df_08[df_08['fuel'].str.contains('/')]; hb_08
+hb_18 = df_18[df_18['fuel'].str.contains('/')]; hb_18
+```
+The 2008 dataset only has one! The 2018 has MANY more...
+<img src="https://user-images.githubusercontent.com/31917400/34075553-30f23b9a-e2c2-11e7-8671-78e306a7d9be.jpg" width="250" height="150" />
+<img src="https://user-images.githubusercontent.com/31917400/34075554-339828fa-e2c2-11e7-9e27-fac2b6fc0706.jpg" width="250" height="150" />
 
 
 
-```   
+
+
+
+
+
  - 3)Fix city_mpg, hwy_mpg, cmb_mpg datatypes
    - 2008 and 2018: convert string to float.
    

@@ -236,6 +236,20 @@ df_18['greenhouse_gas_score'].corr(df_08['cmb_mpg'])   # -0.015115270816720715
 Q1. Are more unique models using alternative sources of fuel? By how much?
 <img src="https://user-images.githubusercontent.com/31917400/34084014-7c5aabe4-e371-11e7-973a-b24dacf0d456.jpg" width="600" height="250" />
 
+These are the sources of fuel. Which ones are alternative sources? Looks like the alternative sources of fuel available in 2008 are CNG and ethanol, and those in 2018 ethanol and electricity.
+```
+alt_08 = df_08.query('fuel in ["CNG", "ethanol"]')['model'].nunique()
+alt_18 = df_18.query('fuel in ["Ethanol", "Electricity"]').model.nunique()
+total_08 = df_08.model.nunique()
+total_18 = df_18.model.nunique()
+
+plt.bar(["2008", "2018"], [alt_08, alt_18])
+plt.title("Number of Unique Models Using Alternative Fuels")
+plt.xlabel("Year")
+plt.ylabel("Number of Unique Models")
+```
+<img src="https://user-images.githubusercontent.com/31917400/34084097-eaa84fd8-e372-11e7-8e8c-7510e9160ab0.jpg" width="250" height="150" />
+
 Q2. How much have vehicle classes improved in fuel economy (increased in mpg)?
 <img src="https://user-images.githubusercontent.com/31917400/34084014-7c5aabe4-e371-11e7-973a-b24dacf0d456.jpg" width="600" height="250" />
 

@@ -234,21 +234,17 @@ df_08['greenhouse_gas_score'].corr(df_08['cmb_mpg'])   # 0.94547041103218687
 df_18['greenhouse_gas_score'].corr(df_08['cmb_mpg'])   # -0.015115270816720715
 ```
 Q1. Are more unique models using alternative sources of fuel? By how much?
-```
+<img src="https://user-images.githubusercontent.com/31917400/34084014-7c5aabe4-e371-11e7-973a-b24dacf0d456.jpg" width="600" height="250" />
 
-```
 Q2. How much have vehicle classes improved in fuel economy (increased in mpg)?
-```
+<img src="https://user-images.githubusercontent.com/31917400/34084014-7c5aabe4-e371-11e7-973a-b24dacf0d456.jpg" width="600" height="250" />
 
-```
 Q3. What are the characteristics of SmartWay vehicles? Have they changed over time? (mpg, greenhouse gas)
-```
+<img src="https://user-images.githubusercontent.com/31917400/34084014-7c5aabe4-e371-11e7-973a-b24dacf0d456.jpg" width="600" height="250" />
 
-```
 Q4. What features are associated with better fuel economy (mpg)?
-```
+<img src="https://user-images.githubusercontent.com/31917400/34084014-7c5aabe4-e371-11e7-973a-b24dacf0d456.jpg" width="600" height="250" />
 
-```
 Q5. For all of the models that were produced in 2008 that are still being produced in 2018, how much has the mpg improved and which vehicle improved the most? 
  >This is a question regarding models that were updated since 2008 and still being produced in 2018. In order to do this, we need a way to compare models that exist in both datasets.
 #### Merging

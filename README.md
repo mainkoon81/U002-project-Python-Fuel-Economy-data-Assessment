@@ -191,7 +191,7 @@ df_18.drop(hb_18.index, inplace=True)
 df_18 = df_18.append(new_rows2, ignore_index=True)
 df_18[df_18['fuel'].str.contains('/')]    #check '/' are gone...
 ```
-Now comfortably continue the changes needed for 'air_pollution_score'.
+Now fianlly, comfortably continue the changes needed for 'air_pollution_score'.
 ```
 # convert string to float for 2008 air pollution column
 df_08.air_pollution_score = df_08.air_pollution_score.astype(float)

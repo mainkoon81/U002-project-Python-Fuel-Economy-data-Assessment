@@ -271,8 +271,6 @@ plt.ylabel('Increase in Average Combined MPG');
 <img src="https://user-images.githubusercontent.com/31917400/34084880-8dfb5e8a-e37f-11e7-85c7-2e5a76c215c4.jpg" />
 
 #### Q4. What features are associated with better fuel economy (mpg)?
-<img src="https://user-images.githubusercontent.com/31917400/34084014-7c5aabe4-e371-11e7-973a-b24dacf0d456.jpg" width="600" height="250" />
-
 We explore trends between 'cmb_mpg' and the other features in this dataset, or filter this dataset like in the previous question and explore the properties of that dataset. We select all vehicles that have the top 50% fuel economy ratings than compare. 
 ```
 top_08 = df_08.query('cmb_mpg > cmb_mpg.mean()')

@@ -267,11 +267,20 @@ plt.ylabel('Increase in Average Combined MPG');
 <img src="https://user-images.githubusercontent.com/31917400/34084344-3d70b180-e376-11e7-9c18-76fe09bf8a93.jpg" width="350" height="200" />
 
 #### Q3. What are the characteristics of SmartWay vehicles? Have they changed over time? (mpg, greenhouse gas)
-<img src="https://user-images.githubusercontent.com/31917400/34084809-9b7a3fbe-e37e-11e7-974e-ab72634b03c4.jpg" width="500" height="150" />
+<img src="https://user-images.githubusercontent.com/31917400/34084809-9b7a3fbe-e37e-11e7-974e-ab72634b03c4.jpg" width="450" height="100" />
 <img src="https://user-images.githubusercontent.com/31917400/34084880-8dfb5e8a-e37f-11e7-85c7-2e5a76c215c4.jpg" />
 
 #### Q4. What features are associated with better fuel economy (mpg)?
 <img src="https://user-images.githubusercontent.com/31917400/34084014-7c5aabe4-e371-11e7-973a-b24dacf0d456.jpg" width="600" height="250" />
+
+We explore trends between 'cmb_mpg' and the other features in this dataset, or filter this dataset like in the previous question and explore the properties of that dataset. We select all vehicles that have the top 50% fuel economy ratings than compare. 
+```
+top_08 = df_08.query('cmb_mpg > cmb_mpg.mean()')
+top_08.describe()
+top_18 = df_18.query('cmb_mpg > cmb_mpg.mean()')
+top_18.describe()
+```
+<img src="https://user-images.githubusercontent.com/31917400/34084941-bdac730c-e380-11e7-91c3-540cd8cd9e56.jpg" />
 
 #### Q5. For all of the models that were produced in 2008 that are still being produced in 2018, how much has the mpg improved and which vehicle improved the most? 
  >This is a question regarding models that were updated since 2008 and still being produced in 2018. In order to do this, we need a way to compare models that exist in both datasets.

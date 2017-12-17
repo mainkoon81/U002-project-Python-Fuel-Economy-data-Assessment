@@ -218,9 +218,20 @@ df_18.dtypes
 df_08.dtypes == df_18.dtypes
 ```
 ## 3> Exploring with visuals
-### 
+ - Q1: Are more unique models using alternative sources of fuel? By how much?
+ - Q2: How much have vehicle classes improved in fuel economy (increased in mpg)?
+ - Q3: What are the characteristics of SmartWay vehicles? Have they changed over time? (mpg, greenhouse gas)
+ - Q4: What features are associated with better fuel economy (mpg)?
+ - Q5: For all of the models that were produced in 2008 that are still being produced in 2018, how much has the mpg improved and which vehicle improved the most? (This is a question regarding models that were updated since 2008 and still being produced in 2018. In order to do this, we need a way to compare models that exist in both datasets.)
+ 
+What's the correlation between 'displacement' and 'combined mpg'? and the correlation between 'greenhouse gas score' and 'combined mpg'?
+```
+df_08['displ'].corr(df_08['cmb_mpg'])   # -0.81795323414579513
+df_18['displ'].corr(df_08['cmb_mpg'])   # 0.011908849032669692
 
-
+df_08['greenhouse_gas_score'].corr(df_08['cmb_mpg'])   # 0.94547041103218687
+df_18['greenhouse_gas_score'].corr(df_08['cmb_mpg'])   # -0.015115270816720715
+```
 
 
 

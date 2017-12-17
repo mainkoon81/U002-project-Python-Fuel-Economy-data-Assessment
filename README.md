@@ -234,14 +234,14 @@ df_08['greenhouse_gas_score'].corr(df_08['cmb_mpg'])   # 0.94547041103218687
 df_18['greenhouse_gas_score'].corr(df_08['cmb_mpg'])   # -0.015115270816720715
 ```
 #### Q1. Are more unique models using alternative sources of fuel? By how much?
-<img src="https://user-images.githubusercontent.com/31917400/34084014-7c5aabe4-e371-11e7-973a-b24dacf0d456.jpg" width="600" height="250" />
+<img src="https://user-images.githubusercontent.com/31917400/34084014-7c5aabe4-e371-11e7-973a-b24dacf0d456.jpg" width="450" height="180" />
 
 These are the sources of fuel. Which ones are alternative sources? Looks like the alternative sources of fuel available in 2008 are CNG and ethanol, and those in 2018 ethanol and electricity.
 ```
 alt_08 = df_08.query('fuel in ["CNG", "ethanol"]')['model'].nunique()
 alt_18 = df_18.query('fuel in ["Ethanol", "Electricity"]').model.nunique()
-total_08 = df_08.model.nunique()
-total_18 = df_18.model.nunique()
+total_08 = df_08.model.nunique()  # 377
+total_18 = df_18.model.nunique()  # 357
 
 plt.bar(["2008", "2018"], [alt_08, alt_18])
 plt.title("Number of Unique Models Using Alternative Fuels")
@@ -251,7 +251,20 @@ plt.ylabel("Number of Unique Models")
 <img src="https://user-images.githubusercontent.com/31917400/34084097-eaa84fd8-e372-11e7-8e8c-7510e9160ab0.jpg" width="250" height="150" />
 
 #### Q2. How much have vehicle classes improved in fuel economy (increased in mpg)?
-<img src="https://user-images.githubusercontent.com/31917400/34084014-7c5aabe4-e371-11e7-973a-b24dacf0d456.jpg" width="600" height="250" />
+<img src="https://user-images.githubusercontent.com/31917400/34084286-5869ae52-e375-11e7-818d-9fed4d596c99.jpg" width="600" height="250" />
+
+These are average fuel economy for each vehicle class for both years.
+```
+inc = veh_18 - veh_08
+inc.dropna(inplace=True)
+
+plt.subplots(figsize=(8, 5))
+plt.bar(inc.index, inc)
+plt.title('Improvements in Fuel Economy from 2008 to 2018 by Vehicle Class')
+plt.xlabel('Vehicle Class')
+plt.ylabel('Increase in Average Combined MPG');
+```
+<img src="https://user-images.githubusercontent.com/31917400/34084344-3d70b180-e376-11e7-9c18-76fe09bf8a93.jpg" width="350" height="200" />
 
 #### Q3. What are the characteristics of SmartWay vehicles? Have they changed over time? (mpg, greenhouse gas)
 <img src="https://user-images.githubusercontent.com/31917400/34084014-7c5aabe4-e371-11e7-973a-b24dacf0d456.jpg" width="600" height="250" />

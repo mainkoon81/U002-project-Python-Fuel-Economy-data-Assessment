@@ -147,23 +147,68 @@ hb_08 = df_08[df_08['fuel'].str.contains('/')]; hb_08
 hb_18 = df_18[df_18['fuel'].str.contains('/')]; hb_18
 ```
 The 2008 dataset only has one! The 2018 has MANY more...
-<img src="https://user-images.githubusercontent.com/31917400/34075553-30f23b9a-e2c2-11e7-8671-78e306a7d9be.jpg" width="250" height="150" />
-<img src="https://user-images.githubusercontent.com/31917400/34075554-339828fa-e2c2-11e7-9e27-fac2b6fc0706.jpg" width="250" height="150" />
+<img src="https://user-images.githubusercontent.com/31917400/34075553-30f23b9a-e2c2-11e7-8671-78e306a7d9be.jpg" width="600" height="40" />
+<img src="https://user-images.githubusercontent.com/31917400/34075554-339828fa-e2c2-11e7-9e27-fac2b6fc0706.jpg" width="600" height="250" />
 
+Take each hybrid row and split them into two new rows - one with values for the first fuel type (values before the "/"), and the other with values for the second fuel type (values after the "/") and separate them with two dataframes! First, create two copies of the 2008 hybrids dataframe.
+```
+df1 = hb_08.copy()  # data on 'first' fuel type of each hybrid vehicle
+df2 = hb_08.copy()  # data on 'second' fuel type of each hybrid vehicle
 
+df3 = hb_18.copy()
+df4 = hb_18.copy()
+```
+Define columns to split by "/"
+```
+split_columns_08 = ['fuel', 'air_pollution_score', 'city_mpg', 'hwy_mpg', 'cmb_mpg', 'greenhouse_gas_score']
 
+split_columns_18 = ['fuel', 'city_mpg', 'hwy_mpg', 'cmb_mpg'] 
+# No need to split for air_pollution_score or greenhouse_gas_score here because these columns are already 'ints' in the 2018 dataset.
+```
+Apply split function to each column of each dataframe-copy then combine dataframes to add to the original dataframe
+```
+for c in split_columns_08:
+    df1[c] = df1[c].apply(lambda x: x.split("/")[0])
+    df2[c] = df2[c].apply(lambda x: x.split("/")[1])
+new_rows = df1.append(df2); new_rows
 
+for c in split_columns_18:
+    df3[c] = df3[c].apply(lambda x: x.split('/')[0])
+    df4[c] = df4[c].apply(lambda x: x.split('/')[1])
+new_rows2 = df3.append(df4); new_rows2
+```
+Drop the original hybrid rows and add in our newly separated rows
+```
+df_08.drop(hb_08.index, inplace=True)
+df_08 = df_08.append(new_rows, ignore_index=True)
+df_08[df_08['fuel'].str.contains('/')]    #check '/' are gone...
 
+df_18.drop(hb_18.index, inplace=True)
+df_18 = df_18.append(new_rows2, ignore_index=True)
+df_18[df_18['fuel'].str.contains('/')]    #check '/' are gone...
+```
+Now comfortably continue the changes needed for 'air_pollution_score'.
+```
+# convert string to float for 2008 air pollution column
+df_08.air_pollution_score = df_08.air_pollution_score.astype(float)
 
-
-
+# convert int to float for 2018 air pollution column
+df_18.air_pollution_score = df_18.air_pollution_score.astype(float)
+```
  - 3)Fix city_mpg, hwy_mpg, cmb_mpg datatypes
    - 2008 and 2018: convert string to float.
-   
+```
+
+```
+
+
+
    
  - 4)Fix greenhouse_gas_score datatype
    - 2008: convert from float to int.
+```
 
+```
 
 
 

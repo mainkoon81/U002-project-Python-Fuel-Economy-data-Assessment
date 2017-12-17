@@ -146,8 +146,10 @@ The mpg columns and greenhouse gas scores also seem to have the same problem - m
 hb_08 = df_08[df_08['fuel'].str.contains('/')]; hb_08
 hb_18 = df_18[df_18['fuel'].str.contains('/')]; hb_18
 ```
-The 2008 dataset only has one! The 2018 has MANY more...
+The 2008 dataset only has one! 
 <img src="https://user-images.githubusercontent.com/31917400/34075553-30f23b9a-e2c2-11e7-8671-78e306a7d9be.jpg" width="600" height="40" />
+
+The 2018 has MANY more...
 <img src="https://user-images.githubusercontent.com/31917400/34075554-339828fa-e2c2-11e7-9e27-fac2b6fc0706.jpg" width="600" height="250" />
 
 Take each hybrid row and split them into two new rows - one with values for the first fuel type (values before the "/"), and the other with values for the second fuel type (values after the "/") and separate them with two dataframes! First, create two copies of the 2008 hybrids dataframe.

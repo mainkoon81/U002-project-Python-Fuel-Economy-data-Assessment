@@ -33,7 +33,7 @@ __Possible Questions:__ Are more models using alternative sources of fuel? By ho
 
 <img src="https://user-images.githubusercontent.com/31917400/34065415-63386fc6-e1f9-11e7-86c1-b23629421c80.jpg" />
 
-### 1> Assess the Dataset
+## 1> Assess the Dataset
 number of samples in each dataset ?
 number of columns in each dataset ?
 duplicate rows in each dataset ?
@@ -42,7 +42,7 @@ features with missing values ?
 number of non-null unique values for features in each dataset ?
 what those unique values are and counts for each ?
 
-#### Counting
+### Counting
 samples, duplicate rows, rows with missing, unique values
 ```
 df.info()
@@ -50,8 +50,8 @@ sum(df.duplicated())
 df.isnull().sum(axis=0)
 df.nunique()
 ```
-### 2> Cleaning
-#### Drop extraneous columns
+## 2> Cleaning
+### Drop extraneous columns
 Drop features that aren't consistent (not present in both datasets) or aren't relevant to our aim.
  - Columns to Drop:
    - From 2008 dataset: 'Stnd', 'Underhood ID', 'FE Calc Appr', 'Unadj Cmb MPG'
@@ -60,7 +60,7 @@ Drop features that aren't consistent (not present in both datasets) or aren't re
 df_08.drop(['Stnd', 'Underhood ID', 'FE Calc Appr', 'Unadj Cmb MPG'], axis=1, inplace=True)
 df_18.drop(['Stnd', 'Stnd Description', 'Underhood ID', 'Comb CO2'], axis=1, inplace=True)
 ```
-#### Rename Columns
+### Rename Columns
 Change the "Sales Area" column label in the 2008 dataset to "Cert Region" for consistency.
 ```
 df_08.rename(columns = {'Sales Area':'Cert Region'}, inplace=True)
@@ -74,7 +74,7 @@ df_08.rename(columns = lambda x: x.strip().lower().replace(" ", "_"), inplace=Tr
 df_08.columns == df_18.columns
 (df_08.columns == df_18.columns).all()
 ```
-#### Querying and Dropping
+### Querying and Dropping
 For consistency, only compare cars certified by 'California standards', filter both datasets using 'query()' to select only rows where cert_region is CA. Then, drop the cert_region columns, since it will no longer provide any useful information. 
 ```
 df_08 = df_08.query('cert_region=="CA"')
@@ -111,7 +111,7 @@ df_18.drop_duplicates(inplace=True)
 print(df_08.duplicated().sum())   #confirm
 print(df_18.duplicated().sum())   #confirm
 ```
-#### Fixing Data-Types
+### Fixing Data-Types
 > NOTE: extract int from str in pandas
  - > You can convert to string then extract the integer using regular expressions: df['column'].str.extract('(\d+)')
 

@@ -202,17 +202,23 @@ df_18.air_pollution_score = df_18.air_pollution_score.astype(float)
  - 3)Fix city_mpg, hwy_mpg, cmb_mpg datatypes
    - 2008 and 2018: convert string to float.
 ```
-
+mpg_columns = ['city_mpg','hwy_mpg','cmb_mpg']
+for c in mpg_columns:
+    df_18[c] = df_18[c].astype(float)
+    df_08[c] = df_08[c].astype(float)
 ```
-
-
-
-   
  - 4)Fix greenhouse_gas_score datatype
    - 2008: convert from float to int.
 ```
+df_08['greenhouse_gas_score'] = df_08['greenhouse_gas_score'].astype(int)
 
+#confirm using 'dtypes'
+df_08.dtypes
+df_18.dtypes
+df_08.dtypes == df_18.dtypes
 ```
+## 3> Exploring with visuals
+### 
 
 
 

@@ -225,7 +225,7 @@ df_08.dtypes == df_18.dtypes
  - Q4: What features are associated with better fuel economy (mpg)?
  - Q5: For all of the models that were produced in 2008 that are still being produced in 2018, how much has the mpg improved and which vehicle improved the most? (This is a question regarding models that were updated since 2008 and still being produced in 2018. In order to do this, we need a way to compare models that exist in both datasets.)
  
-Q0. What's the correlation between 'displacement' and 'combined mpg'? and the correlation between 'greenhouse gas score' and 'combined mpg'?
+#### Q0. What's the correlation between 'displacement' and 'combined mpg'? and the correlation between 'greenhouse gas score' and 'combined mpg'?
 ```
 df_08['displ'].corr(df_08['cmb_mpg'])   # -0.81795323414579513
 df_18['displ'].corr(df_08['cmb_mpg'])   # 0.011908849032669692
@@ -233,7 +233,7 @@ df_18['displ'].corr(df_08['cmb_mpg'])   # 0.011908849032669692
 df_08['greenhouse_gas_score'].corr(df_08['cmb_mpg'])   # 0.94547041103218687
 df_18['greenhouse_gas_score'].corr(df_08['cmb_mpg'])   # -0.015115270816720715
 ```
-Q1. Are more unique models using alternative sources of fuel? By how much?
+#### Q1. Are more unique models using alternative sources of fuel? By how much?
 <img src="https://user-images.githubusercontent.com/31917400/34084014-7c5aabe4-e371-11e7-973a-b24dacf0d456.jpg" width="600" height="250" />
 
 These are the sources of fuel. Which ones are alternative sources? Looks like the alternative sources of fuel available in 2008 are CNG and ethanol, and those in 2018 ethanol and electricity.
@@ -250,16 +250,16 @@ plt.ylabel("Number of Unique Models")
 ```
 <img src="https://user-images.githubusercontent.com/31917400/34084097-eaa84fd8-e372-11e7-8e8c-7510e9160ab0.jpg" width="250" height="150" />
 
-Q2. How much have vehicle classes improved in fuel economy (increased in mpg)?
+#### Q2. How much have vehicle classes improved in fuel economy (increased in mpg)?
 <img src="https://user-images.githubusercontent.com/31917400/34084014-7c5aabe4-e371-11e7-973a-b24dacf0d456.jpg" width="600" height="250" />
 
-Q3. What are the characteristics of SmartWay vehicles? Have they changed over time? (mpg, greenhouse gas)
+#### Q3. What are the characteristics of SmartWay vehicles? Have they changed over time? (mpg, greenhouse gas)
 <img src="https://user-images.githubusercontent.com/31917400/34084014-7c5aabe4-e371-11e7-973a-b24dacf0d456.jpg" width="600" height="250" />
 
-Q4. What features are associated with better fuel economy (mpg)?
+#### Q4. What features are associated with better fuel economy (mpg)?
 <img src="https://user-images.githubusercontent.com/31917400/34084014-7c5aabe4-e371-11e7-973a-b24dacf0d456.jpg" width="600" height="250" />
 
-Q5. For all of the models that were produced in 2008 that are still being produced in 2018, how much has the mpg improved and which vehicle improved the most? 
+#### Q5. For all of the models that were produced in 2008 that are still being produced in 2018, how much has the mpg improved and which vehicle improved the most? 
  >This is a question regarding models that were updated since 2008 and still being produced in 2018. In order to do this, we need a way to compare models that exist in both datasets.
 #### Merging
 

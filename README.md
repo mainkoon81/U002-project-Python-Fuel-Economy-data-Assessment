@@ -282,7 +282,7 @@ top_18.describe()
 
 #### Q5. For all of the models that were produced in 2008 that are still being produced in 2018, how much has the mpg improved and which vehicle improved the most? 
  >This is a question regarding models that were updated since 2008 and still being produced in 2018. In order to do this, we need a way to compare models that exist in both datasets.
-#### Merging
+>#### Merging
 Merging is different from appending. This is similar to the database-style "join."
  - Inner Join - Use intersection of keys from both frames.
  - Outer Join - Use union of keys from both frames.
@@ -297,6 +297,19 @@ we are only interested in how the **same model** of car has been updated and how
 df_combined = df_08.merge(df_18, left_on='model_2008', right_on='model', how='inner')
 df_combined.to_csv('combined_dataset.csv', index=False)
 ```
+Next, we create a new dataframe -'model_mpg'- that contains the mean combined mpg values in 2008 and 2018 for each unique model.
+```
+
+```
+Then we create a new column -'mpg_change'- with the change in mpg.
+```
+
+```
+Finally, we find the vehicle that improved the most.
+```
+
+```
+
 
 
 

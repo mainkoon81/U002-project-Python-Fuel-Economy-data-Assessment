@@ -291,8 +291,9 @@ Merging is different from appending. This is similar to the database-style "join
 First, we should rename 2008 columns to distinguish from 2018 columns after the merge
 ```
 df_08.rename(columns=lambda x: x + "_2008", inplace=True)
+df_08.rename(columns=lambda x: x[:10] + "_2008", inplace=True) # if colnames are too long, we can limit the characters!
 ```
-we are only interested in how the **same model** of car has been updated and how the new model's mpg compares to the old model's mpg, thus we perform an inner merge with the left on model_2008 and the right on model.
+Now, we are only interested in how the **same model** of car has been updated and how the new model's mpg compares to the old model's mpg, thus we perform an inner merge with the left on 'model_2008' and the right on 'model'.
 ```
 df_combined = df_08.merge(df_18, left_on='model_2008', right_on='model', how='inner')
 df_combined.to_csv('combined_dataset.csv', index=False)

@@ -298,45 +298,24 @@ Now, we are only interested in how the **same model** of car has been updated an
 df_combined = df_08.merge(df_18, left_on='model_2008', right_on='model', how='inner')
 df_combined.to_csv('combined_dataset.csv', index=False)
 ```
-Next, we create a new dataframe -'model_mpg'- that contains the mean combined mpg values in 2008 and 2018 for each unique model.
+Next, we create a new dataframe -'model_mpg'- that contains the mean combined mpg values in 2008 and 2018 for each unique model, then we create a new column -'mpg_change'- with the change in mpg.
 ```
+comb_df = pd.read_csv('combined_dataset.csv')
+comb_df.shape #(928, 26)
 
-```
-Then we create a new column -'mpg_change'- with the change in mpg.
-```
+model_mpg_08 = comb_df.groupby('model')['cmb_mpg_2008'].mean(); 
+model_mpg_18 = comb_df.groupby('model')['cmb_mpg'].mean(); 
 
+mpg_change = model_mpg_18 - model_mpg_08
+mpg_change.describe()
 ```
+<img src="https://user-images.githubusercontent.com/31917400/34086423-90b5a9d2-e393-11e7-896e-d0f8f25a2f70.jpg" width="350" height="80" />
+
 Finally, we find the vehicle that improved the most.
 ```
-
+comb_df.query('cmb_mpg - cmb_mpg_2008 > 16')['model']
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<img src="https://user-images.githubusercontent.com/31917400/34086427-9605fab8-e393-11e7-8501-6f5f77d615eb.jpg" width="350" height="60" />
 
 ### 00. Python RegEx
 

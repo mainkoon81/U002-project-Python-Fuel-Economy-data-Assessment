@@ -48,7 +48,7 @@ samples, duplicate rows, rows with missing, unique values
 df.info()
 sum(df.duplicated())
 df.isnull().sum(axis=0)
-df.nunique()
+df.column.nunique()
 ```
 ## 2> Cleaning
 ### Drop extraneous columns

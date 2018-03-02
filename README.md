@@ -318,8 +318,13 @@ comb_df.query('cmb_mpg - cmb_mpg_2008 > 16')['model']
 <img src="https://user-images.githubusercontent.com/31917400/34086427-9605fab8-e393-11e7-8501-6f5f77d615eb.jpg" width="350" height="60" />
 
 ### 00. Python RegEx
-
-
+ - Useful in extracting information from text such as code, log files, spreadsheets, or even documents.
+ - The first thing to recognize when using regular expressions is that everything is essentially a character(and special metacharacters), and we are writing patterns to **match a specific sequence** of strings.
+ - 1) `\d` : can be used in place of any single digit from 0 to 9 (The preceding slash distinguishes it from the simple 'd' character and indicates that it is a metacharacter).
+ - 2) `.` : The Joker is a wildcard and can represent any card in the deck. With regular expressions, you are often matching pieces of text that you don't know the exact contents of, other than the fact that they share a common pattern or structure (phone numbers or zip codes, varying characters with the same length, etc). Wildcard is represented by the `.`(dot) metacharacter, and can match any single character(letter, digit, whitespace, everything). In order to specifically match a period(which is a dot), you need to escape the dot by using a slash `\`. 
+   - `...\.` : 	cat. , 896. , ?=+. 
+ - 3) 
+ 
 
 
 

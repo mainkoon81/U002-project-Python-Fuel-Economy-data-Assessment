@@ -327,8 +327,8 @@ comb_df.query('cmb_mpg - cmb_mpg_2008 > 16')['model']
 <img src="https://user-images.githubusercontent.com/31917400/37179164-a413964c-231c-11e8-840b-d3369b5952cc.jpg" />
 
  - 4) `-`: the dash helps match a character that can be in a sequential range. 
-   - `[0-6]` will only match any **single** digit character from 0 to 6.
-   - `[^n-p]` : only match any **single** character except for letters 'n,o,p'
+   - `[0-6]` only match any **single** digit character from 0 to 6.
+   - `[^n-p]` only match any **single** character except for letters 'n,o,p'
    - Multiple-character-ranges can also be used in the same set of brackets such as `[A-Za-z0-9]` to match any **single** alphabet or digit. This is equivalent to `\w` because it is an 'alpha_numeric' character. If wanting to match a single symbol, use `\W`.
  - 5) `{}`: helps match repetition.   
    - `a{3}` will match the a character 'a' exactly three times. `a{1,3}` will match the a character 'a' no more than 3 times, but no less than once. `[wxy]{5}` will match five characters, each of which can be 'w', 'x', or 'y' and `.{2,6}` will match between two and six of any character.
@@ -337,6 +337,7 @@ comb_df.query('cmb_mpg - cmb_mpg_2008 > 16')['model']
    - `e+` will match one or more repetition of the character 'e' and `[abc]+` will match one or more of any a, b, or c character. 
 <img src="https://user-images.githubusercontent.com/31917400/37183460-153f184e-232e-11e8-9e1d-73a8dc8ef1cf.jpg" />
 
+ - 7) `?`: 
 
 
 

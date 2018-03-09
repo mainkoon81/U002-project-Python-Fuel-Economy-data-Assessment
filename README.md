@@ -352,7 +352,14 @@ comb_df.query('cmb_mpg - cmb_mpg_2008 > 16')['model']
    - `\b` matches the **boundary** between a word and a non-word character. It's most useful in capturing entire words, for example by using the pattern `\w+\b`. 
    - referencing your captured groups by using `\0` (usually the full matched text), `\1` (group 1), `\2` (group 2), etc. This is useful when you are in a text editor and doing a search and replace using regular expressions to swap two numbers, you can search for "(\d+)-(\d+)" and replace it with "\2-\1" to put the second captured number first, and the first captured number second for example.
 
-
+[PRACTICE]
+ - Matching a decimal with `\d`
+   - 
+ - Matching phone numbers with `\d`, `\s`, `\.`, `(.)`
+   - 
+ - Matching emails with 
+   - 
+<img src="https://user-images.githubusercontent.com/31917400/37211600-5e7e38c0-23a4-11e8-9071-7cc8a73c514f.jpg" />
 
 
 

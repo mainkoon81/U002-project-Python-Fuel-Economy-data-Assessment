@@ -4,6 +4,56 @@ __Case-02.__ Fuel-Economy Dataset
   - package:
   - func: 
 -------------------------------------------------------------------------------------------------------------------------------------
+############################################################################################
+### 00. Python RegEx
+ - Useful in extracting information from **text** such as code, log files, spreadsheets, or even documents.
+ - pulling out information from different structured formats.
+ - The first thing to recognize when using regular expressions is that everything is essentially a character(and special metacharacters), and we are writing patterns to **match a specific sequence** of strings.
+ 
+ - 1) `\d`: can be used in place of any **single** digit from 0 to 9 (The preceding slash distinguishes it from the simple 'd' character and indicates that it is a metacharacter)........`\D` is for any Non-digit. 
+ - 2) `.`: The Joker is a wildcard and can represent any card in the deck. Wildcard is represented by the `.`(dot) metacharacter, and can match any **single** character(letter, digit, whitespace, everything). In order to specifically match a period mark, you need to escape the dot by using a backslash `\.` 
+ - 3) `[abc]`: will only match a **single** a, b, or c letter and nothing else. `[ ]` means a single letter ?   
+<img src="https://user-images.githubusercontent.com/31917400/37179164-a413964c-231c-11e8-840b-d3369b5952cc.jpg" />
+
+ - 4) `-`: the dash helps match a character that can be in a sequential range. 
+   - `[0-6]` only match any **single** digit character from 0 to 6.
+   - `[^n-p]` only match any **single** character except for letters 'n,o,p'
+   - Multiple-character-ranges can also be used in the same set of brackets such as `[A-Za-z0-9]` to match any **single** alphabet or digit. This is equivalent to `\w` because it is an 'alpha_numeric' character. If wanting to match a single symbol, use `\W`.
+ - 5) `{}`: helps match **repeated** characters in a line.    
+   - `a{3}` will match the a character 'a' exactly three times. `a{1,3}` will match the a character 'a' no more than 3 times, but no less than once. `[wxy]{5}` will match five characters, each of which can be 'w', 'x', or 'y' and `.{2,6}` will match between two and six of any character.
+ - 6) `*` or `+`: helps match **repeated** characters in a line.    
+   - `e*` will match non or more repetition of the character 'e' and `.*` will match non or more of any character. 
+   - `e+` will match one or more repetition of the character 'e' and `[abc]+` will match one or more of any a, b, or c character. 
+<img src="https://user-images.githubusercontent.com/31917400/37183460-153f184e-232e-11e8-9e1d-73a8dc8ef1cf.jpg" />
+
+ - 7) `?`: denotes **optionality**. `ab?c` will match either the strings "abc" or "ac" because the 'b' is considered optional. Use a backslash `\?` to match a plain question mark.
+ - 8) `\s`: space (␣), the tab (\t), the new line (\n) and the carriage return (\r)...`\s` match any of these specific whitespaces.
+ - 9) `^...$`: With the hat and the dollar sign, you create a pattern that matches the whole line completely at the beginning and end. Note that this is different than the hat used inside a set of bracket `[^...]` for excluding characters.
+<img src="https://user-images.githubusercontent.com/31917400/37199917-fe36fe3a-237a-11e8-9d2d-ea306b48c58d.jpg" />
+
+ - 10) `(...)`: Capturing Group and Matching. RegEx allow us to not just match text but also to **extract information** for further processing from all sorts of data(information like phone numbers or emails). This is done by defining groups of characters and capturing them using the special parentheses and metacharacters. **Any subpattern inside a pair of parentheses will be captured as a group.** For example, if you had a command line tool to list all the image files(IMG0986.png), `^(IMG\d+\.png)$` to capture and extract the full filename while `^(IMG\d+)\.png$` which only captures the part before the period.
+ - 11) `(...(...))`: Capturing Sub-group and Matching. If each of these image files had a sequential picture number in the filename, you could extract both the filename and the picture number using the same pattern by using a 'nested parenthesis' to capture the digits `^(IMG(\d+))\.png$` 
+ - 12) `(.*)`: Capturing All and Matching. For example, if the phone numbers may or may not contain an area code, the right pattern would test for the existence of the whole group of digits `(\d{3})?` 
+ - 13) `(abc|def)`: Conditional Matching. 'abc' or 'def'. For example, `Buy more (milk|bread|juice)` to match only the strings 'Buy more milk', 'Buy more bread', or 'Buy more juice'. `([cb]ats*|[dh]ogs?)` would match either cats or bats, or, dogs or hogs. 
+<img src="https://user-images.githubusercontent.com/31917400/37203847-f402d446-2386-11e8-8ef9-093285898d5a.jpg" />
+
+ - 14) other metacharacters and the results of captured groups: 
+   - `\b` matches the **boundary** between a word and a non-word character. It's most useful in capturing entire words, for example by using the pattern `\w+\b`. 
+   - referencing your captured groups by using `\0` (usually the full matched text), `\1` (group 1), `\2` (group 2), etc. This is useful when you are in a text editor and doing a search and replace using regular expressions to swap two numbers, you can search for "(\d+)-(\d+)" and replace it with "\2-\1" to put the second captured number first, and the first captured number second for example.
+
+[PRACTICE]
+ - Matching a decimal with `\d+`
+ - Matching phone numbers with `\d+`, `\s`, `\.`, `(.)`
+ - Matching emails with `\w+`, `\.`, `(.)` 
+<img src="https://user-images.githubusercontent.com/31917400/37212239-6781fd92-23a6-11e8-9879-436c2c10f8ba.jpg" />
+
+ - Matching specific filenames with `\w+`, `(..|..)`
+ - Trimming whitespace from start and end of line with `\s*`, `^`, `$`
+ - Parsing and extracting data from a URL with `[\w\-\.]+`, `[\w\-\.]*`
+<img src="https://user-images.githubusercontent.com/31917400/37214219-4188a0b8-23ac-11e8-8cc7-e48652b3a801.jpg" />
+ 
+############################################################################################ 
+
 __Data:__ Fuel-Economy Dataset (https://www.epa.gov/compliance-and-fuel-economy-data/data-cars-used-testing-fuel-economy) provided by the EPA-US.Environmental Protection Agency (http://www.fueleconomy.gov/feg/download.shtml/). The data is collected from vehicle testing at EPA's National vehicle lab in Michigan. The EPA provide this data to the US government each year to publish their Fuel-Economy guide. we analyize the two dataset from 2008 and 2018. 
  - Model: vehicle make and model 
  - Displ: engine displacement in liters(the size of an engine in liters) 
@@ -316,69 +366,4 @@ Finally, we find the vehicle that improved the most.
 comb_df.query('cmb_mpg - cmb_mpg_2008 > 16')['model']
 ```
 <img src="https://user-images.githubusercontent.com/31917400/34086427-9605fab8-e393-11e7-8501-6f5f77d615eb.jpg" width="350" height="60" />
-
-### 00. Python RegEx
- - Useful in extracting information from **text** such as code, log files, spreadsheets, or even documents.
- - pulling out information from different structured formats.
- - The first thing to recognize when using regular expressions is that everything is essentially a character(and special metacharacters), and we are writing patterns to **match a specific sequence** of strings.
- 
- - 1) `\d`: can be used in place of any **single** digit from 0 to 9 (The preceding slash distinguishes it from the simple 'd' character and indicates that it is a metacharacter)........`\D` is for any Non-digit. 
- - 2) `.`: The Joker is a wildcard and can represent any card in the deck. Wildcard is represented by the `.`(dot) metacharacter, and can match any **single** character(letter, digit, whitespace, everything). In order to specifically match a period mark, you need to escape the dot by using a backslash `\.` 
- - 3) `[abc]`: will only match a **single** a, b, or c letter and nothing else. `[ ]` means a single letter ?   
-<img src="https://user-images.githubusercontent.com/31917400/37179164-a413964c-231c-11e8-840b-d3369b5952cc.jpg" />
-
- - 4) `-`: the dash helps match a character that can be in a sequential range. 
-   - `[0-6]` only match any **single** digit character from 0 to 6.
-   - `[^n-p]` only match any **single** character except for letters 'n,o,p'
-   - Multiple-character-ranges can also be used in the same set of brackets such as `[A-Za-z0-9]` to match any **single** alphabet or digit. This is equivalent to `\w` because it is an 'alpha_numeric' character. If wanting to match a single symbol, use `\W`.
- - 5) `{}`: helps match **repeated** characters in a line.    
-   - `a{3}` will match the a character 'a' exactly three times. `a{1,3}` will match the a character 'a' no more than 3 times, but no less than once. `[wxy]{5}` will match five characters, each of which can be 'w', 'x', or 'y' and `.{2,6}` will match between two and six of any character.
- - 6) `*` or `+`: helps match **repeated** characters in a line.    
-   - `e*` will match non or more repetition of the character 'e' and `.*` will match non or more of any character. 
-   - `e+` will match one or more repetition of the character 'e' and `[abc]+` will match one or more of any a, b, or c character. 
-<img src="https://user-images.githubusercontent.com/31917400/37183460-153f184e-232e-11e8-9e1d-73a8dc8ef1cf.jpg" />
-
- - 7) `?`: denotes **optionality**. `ab?c` will match either the strings "abc" or "ac" because the 'b' is considered optional. Use a backslash `\?` to match a plain question mark.
- - 8) `\s`: space (␣), the tab (\t), the new line (\n) and the carriage return (\r)...`\s` match any of these specific whitespaces.
- - 9) `^...$`: With the hat and the dollar sign, you create a pattern that matches the whole line completely at the beginning and end. Note that this is different than the hat used inside a set of bracket `[^...]` for excluding characters.
-<img src="https://user-images.githubusercontent.com/31917400/37199917-fe36fe3a-237a-11e8-9d2d-ea306b48c58d.jpg" />
-
- - 10) `(...)`: Capturing Group and Matching. RegEx allow us to not just match text but also to **extract information** for further processing from all sorts of data(information like phone numbers or emails). This is done by defining groups of characters and capturing them using the special parentheses and metacharacters. **Any subpattern inside a pair of parentheses will be captured as a group.** For example, if you had a command line tool to list all the image files(IMG0986.png), `^(IMG\d+\.png)$` to capture and extract the full filename while `^(IMG\d+)\.png$` which only captures the part before the period.
- - 11) `(...(...))`: Capturing Sub-group and Matching. If each of these image files had a sequential picture number in the filename, you could extract both the filename and the picture number using the same pattern by using a 'nested parenthesis' to capture the digits `^(IMG(\d+))\.png$` 
- - 12) `(.*)`: Capturing All and Matching. For example, if the phone numbers may or may not contain an area code, the right pattern would test for the existence of the whole group of digits `(\d{3})?` 
- - 13) `(abc|def)`: Conditional Matching. 'abc' or 'def'. For example, `Buy more (milk|bread|juice)` to match only the strings 'Buy more milk', 'Buy more bread', or 'Buy more juice'. `([cb]ats*|[dh]ogs?)` would match either cats or bats, or, dogs or hogs. 
-<img src="https://user-images.githubusercontent.com/31917400/37203847-f402d446-2386-11e8-8ef9-093285898d5a.jpg" />
-
- - 14) other metacharacters and the results of captured groups: 
-   - `\b` matches the **boundary** between a word and a non-word character. It's most useful in capturing entire words, for example by using the pattern `\w+\b`. 
-   - referencing your captured groups by using `\0` (usually the full matched text), `\1` (group 1), `\2` (group 2), etc. This is useful when you are in a text editor and doing a search and replace using regular expressions to swap two numbers, you can search for "(\d+)-(\d+)" and replace it with "\2-\1" to put the second captured number first, and the first captured number second for example.
-
-[PRACTICE]
- - Matching a decimal with `\d+`
- - Matching phone numbers with `\d+`, `\s`, `\.`, `(.)`
- - Matching emails with `\w+`, `\.`, `(.)` 
-<img src="https://user-images.githubusercontent.com/31917400/37212239-6781fd92-23a6-11e8-9879-436c2c10f8ba.jpg" />
-
- - Matching specific filenames with `\w+`, `(..|..)`
- - Trimming whitespace from start and end of line with `\s*`, `^`, `$`
- - Parsing and extracting data from a URL with `[\w\-\.]+`, `[\w\-\.]*`
-<img src="https://user-images.githubusercontent.com/31917400/37214219-4188a0b8-23ac-11e8-8cc7-e48652b3a801.jpg" />
- 
- 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

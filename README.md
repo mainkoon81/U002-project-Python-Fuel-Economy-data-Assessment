@@ -319,6 +319,7 @@ comb_df.query('cmb_mpg - cmb_mpg_2008 > 16')['model']
 
 ### 00. Python RegEx
  - Useful in extracting information from **text** such as code, log files, spreadsheets, or even documents.
+ - pulling out information from different structured formats.
  - The first thing to recognize when using regular expressions is that everything is essentially a character(and special metacharacters), and we are writing patterns to **match a specific sequence** of strings.
  
  - 1) `\d`: can be used in place of any **single** digit from 0 to 9 (The preceding slash distinguishes it from the simple 'd' character and indicates that it is a metacharacter)........`\D` is for any Non-digit. 
@@ -353,12 +354,18 @@ comb_df.query('cmb_mpg - cmb_mpg_2008 > 16')['model']
    - referencing your captured groups by using `\0` (usually the full matched text), `\1` (group 1), `\2` (group 2), etc. This is useful when you are in a text editor and doing a search and replace using regular expressions to swap two numbers, you can search for "(\d+)-(\d+)" and replace it with "\2-\1" to put the second captured number first, and the first captured number second for example.
 
 [PRACTICE]
- - Matching a decimal with `\d`
- - Matching phone numbers with `\d`, `\s`, `\.`, `(.)`
- - Matching emails with 
+ - Matching a decimal with `\d+`
+ - Matching phone numbers with `\d+`, `\s`, `\.`, `(.)`
+ - Matching emails with `\w+`, `\.`, `(.)` 
 <img src="https://user-images.githubusercontent.com/31917400/37212239-6781fd92-23a6-11e8-9879-436c2c10f8ba.jpg" />
 
-
+ - Matching specific filenames with 
+ - Trimming whitespace from start and end of line with 
+ - Parsing and extracting data from a URL with 
+<img src="https://user-images.githubusercontent.com/31917400/37214219-4188a0b8-23ac-11e8-8cc7-e48652b3a801.jpg" />
+ 
+ 
+ 
 
 
 

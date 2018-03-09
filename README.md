@@ -322,7 +322,7 @@ comb_df.query('cmb_mpg - cmb_mpg_2008 > 16')['model']
  - The first thing to recognize when using regular expressions is that everything is essentially a character(and special metacharacters), and we are writing patterns to **match a specific sequence** of strings.
  
  - 1) `\d`: can be used in place of any single digit from 0 to 9 (The preceding slash distinguishes it from the simple 'd' character and indicates that it is a metacharacter). `\D` is for any Non-digit. 
- - 2) `.`: The Joker is a wildcard and can represent any card in the deck. Wildcard is represented by the `.`(dot) metacharacter, and can match any single character(letter, digit, whitespace, everything). In order to specifically match a period mark(which is a dot), you need to escape the dot by using a slash `\.`. 
+ - 2) `.`: The Joker is a wildcard and can represent any card in the deck. Wildcard is represented by the `.`(dot) metacharacter, and can match any single character(letter, digit, whitespace, everything). In order to specifically match a period mark, you need to escape the dot by using a backslash `\.` 
  - 3) `[abc]`: will only match a single a, b, or c letter and nothing else. `[ ]` means a single letter ?   
 <img src="https://user-images.githubusercontent.com/31917400/37179164-a413964c-231c-11e8-840b-d3369b5952cc.jpg" />
 
@@ -330,15 +330,17 @@ comb_df.query('cmb_mpg - cmb_mpg_2008 > 16')['model']
    - `[0-6]` only match any **single** digit character from 0 to 6.
    - `[^n-p]` only match any **single** character except for letters 'n,o,p'
    - Multiple-character-ranges can also be used in the same set of brackets such as `[A-Za-z0-9]` to match any **single** alphabet or digit. This is equivalent to `\w` because it is an 'alpha_numeric' character. If wanting to match a single symbol, use `\W`.
- - 5) `{}`: helps match repetition.   
+ - 5) `{}`: helps match **repeated** characters in a line.    
    - `a{3}` will match the a character 'a' exactly three times. `a{1,3}` will match the a character 'a' no more than 3 times, but no less than once. `[wxy]{5}` will match five characters, each of which can be 'w', 'x', or 'y' and `.{2,6}` will match between two and six of any character.
- - 6) `*` or `+`: helps match repetition.    
+ - 6) `*` or `+`: helps match **repeated** characters in a line.    
    - `e*` will match non or more repetition of the character 'e' and `.*` will match non or more of any character. 
    - `e+` will match one or more repetition of the character 'e' and `[abc]+` will match one or more of any a, b, or c character. 
 <img src="https://user-images.githubusercontent.com/31917400/37183460-153f184e-232e-11e8-9e1d-73a8dc8ef1cf.jpg" />
 
- - 7) `?`: 
-
+ - 7) `?`: denotes optionality. `ab?c` will match either the strings "abc" or "ac" because the 'b' is considered optional. Use a backslash `\?` to match a plain question mark.
+ - 8) `\s`: space (␣), the tab (\t), the new line (\n) and the carriage return (\r)...`\s` match any of these specific whitespaces.
+ - 9) `^...$`: With the hat and the dollar sign, you create a pattern that matches the whole line completely at the beginning and end. Note that this is different than the hat used inside a set of bracket `[^...]` for excluding characters.
+<img src="https://user-images.githubusercontent.com/31917400/37199917-fe36fe3a-237a-11e8-9d2d-ea306b48c58d.jpg" />
 
 
 

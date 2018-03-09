@@ -359,9 +359,9 @@ comb_df.query('cmb_mpg - cmb_mpg_2008 > 16')['model']
  - Matching emails with `\w+`, `\.`, `(.)` 
 <img src="https://user-images.githubusercontent.com/31917400/37212239-6781fd92-23a6-11e8-9879-436c2c10f8ba.jpg" />
 
- - Matching specific filenames with 
- - Trimming whitespace from start and end of line with 
- - Parsing and extracting data from a URL with 
+ - Matching specific filenames with `\w+`, `(..|..)`
+ - Trimming whitespace from start and end of line with `\s*`, `^`, `$`
+ - Parsing and extracting data from a URL with `[\w\-\.]+`, `[\w\-\.]*`
 <img src="https://user-images.githubusercontent.com/31917400/37214219-4188a0b8-23ac-11e8-8cc7-e48652b3a801.jpg" />
  
  

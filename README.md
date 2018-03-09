@@ -321,12 +321,21 @@ comb_df.query('cmb_mpg - cmb_mpg_2008 > 16')['model']
  - Useful in extracting information from **text** such as code, log files, spreadsheets, or even documents.
  - The first thing to recognize when using regular expressions is that everything is essentially a character(and special metacharacters), and we are writing patterns to **match a specific sequence** of strings.
  
- - 1) `\d` : can be used in place of any single digit from 0 to 9 (The preceding slash distinguishes it from the simple 'd' character and indicates that it is a metacharacter).
- - 2) `.` : The Joker is a wildcard and can represent any card in the deck. Wildcard is represented by the `.`(dot) metacharacter, and can match any single character(letter, digit, whitespace, everything). In order to specifically match a period mark(which is a dot), you need to escape the dot by using a slash `\.`. 
- - 3) `[abc]` : will only match a single a, b, or c letter and nothing else. 
+ - 1) `\d`: can be used in place of any single digit from 0 to 9 (The preceding slash distinguishes it from the simple 'd' character and indicates that it is a metacharacter). `\D` is for any Non-digit. 
+ - 2) `.`: The Joker is a wildcard and can represent any card in the deck. Wildcard is represented by the `.`(dot) metacharacter, and can match any single character(letter, digit, whitespace, everything). In order to specifically match a period mark(which is a dot), you need to escape the dot by using a slash `\.`. 
+ - 3) `[abc]`: will only match a single a, b, or c letter and nothing else. `[ ]` means a single letter ?   
 <img src="https://user-images.githubusercontent.com/31917400/37179164-a413964c-231c-11e8-840b-d3369b5952cc.jpg" />
 
- - 4) 
+ - 4) `-`: the dash helps match a character that can be in a sequential range. 
+   - `[0-6]` will only match any **single** digit character from 0 to 6.
+   - `[^n-p]` : only match any **single** character except for letters 'n,o,p'
+   - Multiple-character-ranges can also be used in the same set of brackets such as `[A-Za-z0-9]` to match any **single** alphabet or digit. This is equivalent to `\w` because it is an 'alpha_numeric' character. If wanting to match a single symbol, use `\W`.
+ - 5) `{}`: helps match repetition.   
+   - `a{3}` will match the a character 'a' exactly three times. `a{1,3}` will match the a character 'a' no more than 3 times, but no less than once. `[wxy]{5}` will match five characters, each of which can be 'w', 'x', or 'y' and `.{2,6}` will match between two and six of any character.
+ - 6) `*` or `+`: helps match repetition.    
+   - `e*` will match non or more repetition of the character 'e' and `.*` will match non or more of any character. 
+   - `e+` will match one or more repetition of the character 'e' and `[abc]+` will match one or more of any a, b, or c character. 
+<img src="https://user-images.githubusercontent.com/31917400/37183242-fa7d602a-232c-11e8-9971-5a6e38c18582.jpg" />
 
 
 

@@ -335,7 +335,7 @@ comb_df.query('cmb_mpg - cmb_mpg_2008 > 16')['model']
  - 6) `*` or `+`: helps match repetition.    
    - `e*` will match non or more repetition of the character 'e' and `.*` will match non or more of any character. 
    - `e+` will match one or more repetition of the character 'e' and `[abc]+` will match one or more of any a, b, or c character. 
-<img src="https://user-images.githubusercontent.com/31917400/37183242-fa7d602a-232c-11e8-9971-5a6e38c18582.jpg" />
+<img src="https://user-images.githubusercontent.com/31917400/37183460-153f184e-232e-11e8-9e1d-73a8dc8ef1cf.jpg" />
 
 
 

@@ -354,12 +354,10 @@ comb_df.query('cmb_mpg - cmb_mpg_2008 > 16')['model']
 
 [PRACTICE]
  - Matching a decimal with `\d`
-   - 
  - Matching phone numbers with `\d`, `\s`, `\.`, `(.)`
-   - 
  - Matching emails with 
-   - 
-<img src="https://user-images.githubusercontent.com/31917400/37211600-5e7e38c0-23a4-11e8-9071-7cc8a73c514f.jpg" />
+<img src="https://user-images.githubusercontent.com/31917400/37212239-6781fd92-23a6-11e8-9879-436c2c10f8ba.jpg" />
+
 
 
 

@@ -321,9 +321,9 @@ comb_df.query('cmb_mpg - cmb_mpg_2008 > 16')['model']
  - Useful in extracting information from **text** such as code, log files, spreadsheets, or even documents.
  - The first thing to recognize when using regular expressions is that everything is essentially a character(and special metacharacters), and we are writing patterns to **match a specific sequence** of strings.
  
- - 1) `\d`: can be used in place of any single digit from 0 to 9 (The preceding slash distinguishes it from the simple 'd' character and indicates that it is a metacharacter). `\D` is for any Non-digit. 
- - 2) `.`: The Joker is a wildcard and can represent any card in the deck. Wildcard is represented by the `.`(dot) metacharacter, and can match any single character(letter, digit, whitespace, everything). In order to specifically match a period mark, you need to escape the dot by using a backslash `\.` 
- - 3) `[abc]`: will only match a single a, b, or c letter and nothing else. `[ ]` means a single letter ?   
+ - 1) `\d`: can be used in place of any **single** digit from 0 to 9 (The preceding slash distinguishes it from the simple 'd' character and indicates that it is a metacharacter)........`\D` is for any Non-digit. 
+ - 2) `.`: The Joker is a wildcard and can represent any card in the deck. Wildcard is represented by the `.`(dot) metacharacter, and can match any **single** character(letter, digit, whitespace, everything). In order to specifically match a period mark, you need to escape the dot by using a backslash `\.` 
+ - 3) `[abc]`: will only match a **single** a, b, or c letter and nothing else. `[ ]` means a single letter ?   
 <img src="https://user-images.githubusercontent.com/31917400/37179164-a413964c-231c-11e8-840b-d3369b5952cc.jpg" />
 
  - 4) `-`: the dash helps match a character that can be in a sequential range. 
@@ -337,12 +337,20 @@ comb_df.query('cmb_mpg - cmb_mpg_2008 > 16')['model']
    - `e+` will match one or more repetition of the character 'e' and `[abc]+` will match one or more of any a, b, or c character. 
 <img src="https://user-images.githubusercontent.com/31917400/37183460-153f184e-232e-11e8-9e1d-73a8dc8ef1cf.jpg" />
 
- - 7) `?`: denotes optionality. `ab?c` will match either the strings "abc" or "ac" because the 'b' is considered optional. Use a backslash `\?` to match a plain question mark.
+ - 7) `?`: denotes **optionality**. `ab?c` will match either the strings "abc" or "ac" because the 'b' is considered optional. Use a backslash `\?` to match a plain question mark.
  - 8) `\s`: space (␣), the tab (\t), the new line (\n) and the carriage return (\r)...`\s` match any of these specific whitespaces.
  - 9) `^...$`: With the hat and the dollar sign, you create a pattern that matches the whole line completely at the beginning and end. Note that this is different than the hat used inside a set of bracket `[^...]` for excluding characters.
 <img src="https://user-images.githubusercontent.com/31917400/37199917-fe36fe3a-237a-11e8-9d2d-ea306b48c58d.jpg" />
 
+ - 10) `(...)`: Capturing Group and Matching. RegEx allow us to not just match text but also to **extract information** for further processing from all sorts of data(information like phone numbers or emails). This is done by defining groups of characters and capturing them using the special parentheses and metacharacters. **Any subpattern inside a pair of parentheses will be captured as a group.** For example, if you had a command line tool to list all the image files(IMG0986.png), `^(IMG\d+\.png)$` to capture and extract the full filename while `^(IMG\d+)\.png$` which only captures the part before the period.
+ - 11) `(...(...))`: Capturing Sub-group and Matching. If each of these image files had a sequential picture number in the filename, you could extract both the filename and the picture number using the same pattern by using a 'nested parenthesis' to capture the digits `^(IMG(\d+))\.png$` 
+ - 12) `(.*)`: Capturing All and Matching. For example, if the phone numbers may or may not contain an area code, the right pattern would test for the existence of the whole group of digits `(\d{3})?` 
+ - 13) `(abc|def)`: Conditional Matching. 'abc' or 'def'. For example, `Buy more (milk|bread|juice)` to match only the strings 'Buy more milk', 'Buy more bread', or 'Buy more juice'. `([cb]ats*|[dh]ogs?)` would match either cats or bats, or, dogs or hogs. 
+<img src="https://user-images.githubusercontent.com/31917400/37203847-f402d446-2386-11e8-8ef9-093285898d5a.jpg" />
 
+ - 14) other metacharacters and the results of captured groups: 
+   - `\b` matches the **boundary** between a word and a non-word character. It's most useful in capturing entire words, for example by using the pattern `\w+\b`. 
+   - referencing your captured groups by using `\0` (usually the full matched text), `\1` (group 1), `\2` (group 2), etc. This is useful when you are in a text editor and doing a search and replace using regular expressions to swap two numbers, you can search for "(\d+)-(\d+)" and replace it with "\2-\1" to put the second captured number first, and the first captured number second for example.
 
 
 

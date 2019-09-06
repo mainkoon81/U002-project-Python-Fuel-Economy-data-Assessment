@@ -1,4 +1,4 @@
-# project-02-DA
+# 02-Data Analysis
 
 __Case-02.__ Fuel-Economy Dataset
   - package:
